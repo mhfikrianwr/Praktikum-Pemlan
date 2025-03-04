@@ -1,10 +1,10 @@
-
 package modul1;
 import java.util.*;
 public class MainMobil {
     public static void inputData(Mobil mobil, int a, Scanner input){
         System.out.println("===== Input Data Mobil ke-" +a+ " =====");
         int kecepatan; String manufaktur, plat, warna;
+        double waktu;
         System.out.print("Masukkan kecepatan mobil : ");
         kecepatan = input.nextInt();
         manufaktur = input.nextLine();
@@ -17,7 +17,11 @@ public class MainMobil {
         mobil.setNoPlat(plat); 
         System.out.print("Masukkan warna mobil : ");
         warna = input.nextLine();
-        mobil.setWarna("Merah"); 
+        mobil.setWarna(warna); 
+        System.out.print("Masukkan waktu  tempuh mobil (jam) : ");
+        waktu = input.nextDouble();
+        input.nextLine();
+        mobil.setWaktu(waktu);
         System.out.println("======= Proses Input selesai ========\n");
     }
     public static void main(String[] args) { 
@@ -37,6 +41,6 @@ public class MainMobil {
     //menampilkan hasil perubahan 
     m1.displayMessage(); 
     } 
-    }
+}
     
     
