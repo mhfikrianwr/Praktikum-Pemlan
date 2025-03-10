@@ -1,4 +1,4 @@
-package modul1.soalPraktikum;
+package soalPraktikum;
 
 public class Koleksi {
     private String kategori;
@@ -35,4 +35,5 @@ public class Koleksi {
         }
         System.out.println("=====================\n");
     }
+    
 }

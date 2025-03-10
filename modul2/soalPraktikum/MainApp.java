@@ -1,4 +1,4 @@
-package modul1.soalPraktikum;
+package soalPraktikum;
 import java.util.Scanner;
 public class MainApp {
     public static void inputData(Koleksi koleksi, Buku buku[], int counter, Scanner in) {

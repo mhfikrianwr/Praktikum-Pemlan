@@ -1,4 +1,4 @@
-package modul1.soalPraktikum;
+package soalPraktikum;
 
 public class Buku {
     private String penulis[];
