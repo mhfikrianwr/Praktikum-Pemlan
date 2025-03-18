@@ -1,16 +1,28 @@
 package soalPraktikum;
-
+import java.util.Scanner;
 public class Buku {
-    private String penulis[];
-    private int banyakPenulis;
+    private String penulis;
     private String judul;
     private String kategori;
+    private String sinopsis;
+    public Buku(){
 
-    public void setjumlahPenulis(int a) {
-        banyakPenulis = a;
-        penulis = new String[a]; // Inisialisasi array penulis sesuai jumlahnya
     }
-
+    public Buku(String penulis, String judul,String kategori,String sinopsis){
+        this.setJudul(judul);
+        this.setPenulis(penulis);
+        this.setKategori(kategori);
+        this.setSinopsis(sinopsis);
+    }
+    public void setSinopsis(String a){
+        int panjangSinopsis = a.length();
+        Scanner in = new Scanner(System.in);
+        while(panjangSinopsis < 10){
+            System.out.print("Sinopsis terlalu Pendek!! Masukkan sinopsis yang baru");
+            a = in.nextLine();
+        }
+        this.sinopsis = a;
+    }
     public void setJudul(String b) {
         judul = b;
     }
@@ -19,22 +31,40 @@ public class Buku {
         kategori = a;
     }
 
-    public void setPenulis(String b, int a) {
-        if (a >= 0 && a < banyakPenulis) { // Cek agar tidak out of bounds
-            penulis[a] = b;
-        } else {
-            System.out.println("Indeks penulis melebihi batas!");
-        }
+    public void setPenulis(String b) {
+        penulis = b;
     }
 
-    public void displayMessage(int a) {
-        System.out.println("===== Buku-" + (a + 1) + " =====");
+    public void displayMessage() {
+        System.out.println("===================");
         System.out.println("Judul: " + judul);
-        System.out.println("Penulis: ");
-        for (int i = 0; i < banyakPenulis; i++) {
-            System.out.println("  " + (i + 1) + ". " + penulis[i]);
-        }
+        System.out.println("Penulis : " + penulis);
         System.out.println("Kategori: " + kategori);
+        System.out.println("Sinopsis : " + sinopsis);
         System.out.println("===================\n");
+    }
+    public void jumlahKata(){
+        int b = sinopsis.length();
+        int banyakKata = 0;
+        for(int i=0; i<b; i++){
+            if(sinopsis.charAt(i) != ' ') banyakKata++;
+        }
+        System.out.println("Jumlah kata dari sinopsis buku ini : " + banyakKata);
+    }
+    public int cekKesamaan(Buku buku2){
+        int percentage = 0;
+        if(this.judul.equalsIgnoreCase(buku2.judul)) percentage += 25;
+        if(this.penulis.equalsIgnoreCase(buku2.penulis)) percentage += 25;
+        if(this.kategori.equalsIgnoreCase(buku2.kategori)) percentage += 25;
+        if(this.sinopsis.equalsIgnoreCase(buku2.sinopsis)) percentage += 25;
+        return percentage;
+    }
+    public void copy(Buku buku2){
+        int percentage = this.cekKesamaan(buku2);
+        if(percentage == 100){
+            System.out.println(this.judul + " mengopy buku " + buku2.judul + " tingkat kesamaan 100% !");
+        }else{
+            System.out.println(this.judul + " tidak mengopy buku " + buku2.judul + " tingkat kesamaan" + percentage + "% !");
+        }
     }
 }
