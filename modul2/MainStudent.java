@@ -1,5 +1,36 @@
+import java.util.*;
 public class MainStudent {
     public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int banyakMahasiswa;
+        System.out.print("Masukkan jumlah mahasiswa : "); 
+        banyakMahasiswa = in.nextInt();
+        in.nextLine();
+        Student students[] = new Student[banyakMahasiswa];
+        for(int i=0; i<banyakMahasiswa; i++){
+            students[i] = new Student();
+            System.out.println("=== Meminta input student ke-"+(i+1)+" ===");
+            String a;
+            System.out.print("Name : "); a = in.nextLine();
+            students[i].setName(a);
+            System.out.print("Address : "); a = in.nextLine();
+            students[i].setAddress(a);
+            int c;
+            System.out.print("Umur : "); c = in.nextInt();
+            students[i].setAge(c);
+            double b;
+            System.out.print("Nilai Math : "); b =in.nextDouble();
+            students[i].setMath(b);
+            System.out.print("Nilai english : "); b =in.nextDouble();
+            students[i].setEnglish(b);
+            System.out.print("Nilai Science : "); b =in.nextDouble();
+            students[i].setScience(b);
+            System.out.println("====================================");
+            in.nextLine();
+        }
+        for(int i=0; i<banyakMahasiswa; i++){
+            students[i].displayMessage();
+        }
         Student anna = new Student();
         anna.setName("Anna");
         anna.setAddress("Malang");
@@ -32,6 +63,9 @@ public class MainStudent {
         Fikri.setName("Fikri");
         Fikri.setAge(18);
         Fikri.setAddress("Sulawesi");
-        Fikri.displayMessage();        
+        Fikri.displayMessage();
+        in.close();     
+
+        System.out.println("Banyak Objek : " + anna.getbanyakObjek());
     }
 }

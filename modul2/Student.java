@@ -6,17 +6,21 @@ public class Student{
     private double englishGrade;
     private double scienceGrade;
     private boolean lulus;
+    private static int banyakObjek = 0;
     public Student(){
+        banyakObjek++;
         name = "";
         address = "";
         age = 0;
     }
     public Student(String n, String a, int ag){
+        banyakObjek++;
         name = n;
         address = a;
         age = ag;
     }
     public Student(double math, double english, double science){
+        banyakObjek++;
         mathGrade = math;
         englishGrade = english;
         scienceGrade = science;
@@ -44,6 +48,9 @@ public class Student{
         result = (mathGrade + scienceGrade + englishGrade)/3;
         return result;
     }
+    public int getbanyakObjek(){
+        return banyakObjek;
+    }
     public void displayMessage(){
         System.out.println("Siswa dengan nama "+name); 
         System.out.println("beramalat di "+address); 
@@ -51,7 +58,7 @@ public class Student{
         System.out.println("mempunyai nilai rata rata "+getAverage());
         lulus = statusAkhir();
         if(lulus) System.out.println(name + " dinyatakan lulus!!!");
-        else System.out.println(name + " dinyatakan tidak lulus :/("); 
+        else System.out.println(name + " dinyatakan tidak lulus :("); 
     }
     public boolean statusAkhir(){
         double nilaiAkhir = getAverage();
